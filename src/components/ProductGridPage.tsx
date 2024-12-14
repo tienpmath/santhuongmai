@@ -124,10 +124,9 @@ const ProductGridPage = (props: any) => {
         <Image
           src={"https://file.raovatlamdong.vn/images/" + array4[0]}
           alt="rao vặt"
-          width="0"
-          height="0"
-          sizes="100vw"
-          className="w-full h-auto"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </>
     );
