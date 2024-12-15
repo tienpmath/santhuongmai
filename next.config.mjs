@@ -6,6 +6,8 @@ const nextConfig = {
       "images.unsplash.com",
       "plus.unsplash.com",
       "file.raovatlamdong.vn",
+      "admin.raovatlamdong.vn",
+      "cloud.raovatlamdong.vn",
     ],
   },
 };

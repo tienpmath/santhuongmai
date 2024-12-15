@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ClientLink from "@/components/ui/client-link";
 import {
@@ -14,13 +15,20 @@ import { CircleUser, Menu, Package2 } from "lucide-react";
 import Link from "next/link";
 export default function TopNavBar() {
   return (
-    <header className="sticky inset-x-0 top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+    <header className="z-50 sticky inset-x-0 top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
-          href="#"
+          href="/"
           className="flex items-center gap-2 text-lg font-semibold md:text-base"
         >
+          <Image
+            src="https://file.raovatlamdong.vn/images/c56421a5-2806-4bb3-a9d1-38d66e793db5.png&w=1200&q=75"
+            alt="alt"
+            width={200}
+            height={100}
+          />
           <Package2 className="h-6 w-6" />
+
           <span className="sr-only">Rao vặt Lâm Đồng</span>
         </Link>
         {/* {PublicMenus.map((menu, index) => {
