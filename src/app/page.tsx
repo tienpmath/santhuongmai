@@ -1,10 +1,9 @@
-import Login from "@/components/Login";
+//import Login from "@/components/Login";
 import ProductGridPage from "@/components/ProductGridPage";
-import { getSession } from "@/lib";
+
 import PublicLayout from "./layout/public-layout";
 
 export default async function Home() {
-  const session = await getSession();
   const res = await fetch(
     "https://cloud.raovatlamdong.vn/api/app/product?SkipCount=1&MaxResultCount=100&Sorting=Id",
     {

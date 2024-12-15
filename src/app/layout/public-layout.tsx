@@ -1,4 +1,3 @@
-import Auth from "@/components/navbar/auth";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -14,7 +13,6 @@ import { SVGProps } from "react";
 export function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <Auth />
       <main className="flex-1">
         <section>{children}</section>
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
