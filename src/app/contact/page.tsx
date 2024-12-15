@@ -3,7 +3,19 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import React, { FC } from "react";
-
+export const metadata = {
+  title:
+    "Liên hệ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+  description:
+    "Liên hệ  Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+  openGraph: {
+    title:
+      "Liên hệ  Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+    description:
+      "Liên hệ  Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+    images: "/public/logotiendev.png",
+  },
+};
 const info = [
   {
     title: "🗺 Địa chỉ",

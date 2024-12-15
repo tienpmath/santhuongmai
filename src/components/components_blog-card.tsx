@@ -19,7 +19,6 @@ interface BlogCardProps {
 }
 
 export function BlogCard(data: any, key: any) {
-  console.log(data);
   return (
     <Card className="flex flex-col overflow-hidden">
       <CardHeader className="p-0">

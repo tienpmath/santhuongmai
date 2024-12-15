@@ -13,6 +13,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { CircleUser, Menu, Package2 } from "lucide-react";
 import Link from "next/link";
+import Logo from "../Logo";
 export default function TopNavBar() {
   return (
     <header className="z-50 sticky inset-x-0 top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
@@ -21,27 +22,23 @@ export default function TopNavBar() {
           href="/"
           className="flex items-center gap-2 text-lg font-semibold md:text-base"
         >
-          <Image
-            src="https://file.raovatlamdong.vn/images/c56421a5-2806-4bb3-a9d1-38d66e793db5.png&w=1200&q=75"
-            alt="alt"
-            width={200}
-            height={100}
-          />
           <Package2 className="h-6 w-6" />
 
           <span className="sr-only">Rao vặt Lâm Đồng</span>
         </Link>
-        {/* {PublicMenus.map((menu, index) => {
-          return (
-            <Link
-              key={index}
-              href={menu.Link}
-              className="w-24 text-foreground transition-colors hover:text-foreground"
-            >
-              {menu.Name}
-            </Link>
-          )
-        })} */}
+
+        <Link
+          href="/about"
+          className="w-24 text-foreground transition-colors hover:text-foreground"
+        >
+          Giới thiệu
+        </Link>
+        <Link
+          href="/contact"
+          className="w-24 text-foreground transition-colors hover:text-foreground"
+        >
+          Liên hệ
+        </Link>
       </nav>
       <Sheet>
         <SheetTrigger asChild>
@@ -53,27 +50,31 @@ export default function TopNavBar() {
         <SheetContent side="left">
           <nav className="grid gap-6 text-lg font-medium">
             <Link
-              href="#"
+              target="_blank"
+              href="/"
               className="flex items-center gap-2 text-lg font-semibold"
             >
               <Package2 className="h-6 w-6" />
-              <span className="sr-only">Acme Inc</span>
+              <span className="sr-only">Mua Bán Rao Vặt Đà Lạt - Lâm Đồng</span>
             </Link>
-            {/* {PublicMenus.map((menu, index) => {
-              return (
-                <Link
-                  key={index}
-                  href={menu.Link}
-                  className="text-foreground hover:text-foreground"
-                >
-                  {menu.Name}
-                </Link>
-              );
-            })} */}
+
+            <Link
+              href="/about"
+              className="text-foreground hover:text-foreground"
+            >
+              Giới thiệu
+            </Link>
+            <Link
+              href="/contact"
+              className="text-foreground hover:text-foreground"
+            >
+              Liên hệ
+            </Link>
           </nav>
         </SheetContent>
       </Sheet>
       <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+        <Logo />
         <form className="ml-auto flex-1 sm:flex-initial"></form>
 
         <DropdownMenu>

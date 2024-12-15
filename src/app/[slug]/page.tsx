@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import type { Metadata, ResolvingMetadata } from "next";
+
 import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 import { Badge } from "lucide-react";
 import { format } from "path";
 import { title } from "process";
 import Image from "next/image";
+import { ResolvingMetadata, Metadata } from "next";
 interface BlogDetailProps {
   title: string;
   content: string;

@@ -2,7 +2,21 @@
 import { BlogCard } from "@/components/components_blog-card";
 import { BlogList } from "@/components/components_blog-list";
 import ProductGridPage from "@/components/ProductGridPage";
-import Image from "next/image";
+
+export const metadata = {
+  title:
+    "Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+  description:
+    "Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+  openGraph: {
+    title:
+      "Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+    description:
+      "Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+    images: "/public/logotiendev.png",
+  },
+};
+
 export default async function Home() {
   const res = await fetch(
     "https://cloud.raovatlamdong.vn/api/app/product?SkipCount=1&MaxResultCount=100&Sorting=Id",

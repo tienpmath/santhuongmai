@@ -4,6 +4,50 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@radix-ui/react-select";
+import type { Metadata, ResolvingMetadata } from "next";
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const id = (await params).slug;
+
+  const res = await fetch(
+    `https://admin.raovatlamdong.vn/api/cms-kit-public/blog-posts/default/${id}`,
+    {
+      method: "GET",
+      next: { tags: ["collectionDetail"], revalidate: 60 },
+    }
+  );
+
+  //const total_items = +(res.headers?.get("X-Total-Count") ?? 0)
+  const product = await res.json();
+
+  // // fetch data
+  // const product = await fetch(`https://api.ictdalat.vn/api/Portfolio/GetDetailBy/${id}`, { next: { tags: ['detail-portfolio'] } },
+  // ).then((res) => res.json())
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: product.name,
+    description: product.description,
+    openGraph: {
+      title: product.name,
+      description: product.description,
+      images: [
+        "https://admin.raovatlamdong.vn/uploads/host/my-file-container/" +
+          product.coverImageMediaId,
+        ...previousImages,
+      ],
+    },
+  };
+}
 
 const BlogSingleSlug = async (props: any) => {
   //console.log(props);
@@ -52,7 +96,7 @@ const BlogSingleSlug = async (props: any) => {
             <Image
               src={
                 "https://admin.raovatlamdong.vn/uploads/host/my-file-container/" +
-                data.image
+                data.coverImageMediaId
               }
               alt={data.title}
               fill

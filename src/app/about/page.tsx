@@ -5,7 +5,19 @@ import SectionStatistic from "@/components/about/SectionStatistic";
 import rightImg from "../../../public/images/hero-right1.png";
 import React, { FC } from "react";
 import SectionPromo3 from "@/components/about/SectionPromo3";
-
+export const metadata = {
+  title:
+    "Giới thiệu dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+  description:
+    "Giới thiệu dịch vụ  Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+  openGraph: {
+    title:
+      "Giới thiệu dịch vụ Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+    description:
+      " Sàn thương mại điện tử, mua bán, rao vặt, đăng tin.☎️ 0944838788 SEO ✔️✔️ Dịch vụ Mua bán rao vặt Đà Lạt, Đức Trọng, Bảo Lộc, Di Linh, Lâm Hà - Lâm Đồng",
+    images: "/public/logotiendev.png",
+  },
+};
 const PageAbout = ({}) => {
   //https://admin.raovatlamdong.vn/api/cms-kit-public/pages/by-slug?slug=ve-chung-toi
 
