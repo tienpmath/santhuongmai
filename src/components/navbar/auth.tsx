@@ -5,7 +5,7 @@ const Auth = async () => {
   const session = await getSession();
   const u = session.userInfo;
 
-  return <TopNavBar user={u} />;
+  return <TopNavBar />;
 };
 
 export default Auth;
