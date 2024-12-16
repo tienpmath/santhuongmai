@@ -119,7 +119,7 @@ const ProductGridPage = (props: any) => {
       array4 = img.split(",", 5);
       // console.log(array4[0]);
     }
-
+    //console.log(data);
     return (
       <>
         {" "}

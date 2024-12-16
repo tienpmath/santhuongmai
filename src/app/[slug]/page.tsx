@@ -76,7 +76,6 @@ export async function generateMetadata(
 }
 
 const ProductDetailSlug = async (props: Props) => {
-  //console.log(props);
   const slug = (await props.params).slug;
   //console(slug);
   //console.log(id);
@@ -90,7 +89,7 @@ const ProductDetailSlug = async (props: Props) => {
 
   const data = await res.json();
   const datap = await getData();
-
+  //console.log(data);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -98,6 +97,27 @@ const ProductDetailSlug = async (props: Props) => {
     image: data.image,
     description: data.description,
   };
+
+  const Img = (img: any) => {
+    let array4 = [""];
+    if (img) {
+      array4 = img.split(",", 5);
+    }
+
+    return (
+      <>
+        {" "}
+        <Image
+          src={"https://file.raovatlamdong.vn/images/" + array4[0]}
+          alt="rao vặt"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </>
+    );
+  };
+
   return (
     <>
       <DetailComponent data={data} datap={datap} />
@@ -122,17 +142,7 @@ const ProductDetailSlug = async (props: Props) => {
           </div> */}
           </div>
           <div className="relative w-full h-64 md:h-96 mb-8">
-            <Image
-              src={
-                "https://cloud.raovatlamdong.vn/uploads/host/my-file-container/" +
-                data.image
-              }
-              alt={data.name}
-              fill
-              className="object-cover rounded-lg"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              priority
-            />
+            {Img(data.image ? data.image : "unnamed.png")}
           </div>
           <div className="flex flex-wrap gap-2 mb-4">
             <Badge className="secondary">tag</Badge>

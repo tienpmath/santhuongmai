@@ -85,14 +85,14 @@ export default function TopNavBar() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <Link href="/admin" className="cursor-pointer">
-              <DropdownMenuItem>Admin</DropdownMenuItem>
+            <Link href="/about" className="cursor-pointer">
+              <DropdownMenuItem>Giới thiệu</DropdownMenuItem>
             </Link>
-            <Link href="/admin/profile" className="cursor-pointer">
-              <DropdownMenuItem>Profile</DropdownMenuItem>
+            <Link href="/contact" className="cursor-pointer">
+              <DropdownMenuItem>Liên hệ</DropdownMenuItem>
             </Link>
-            <Link href="/admin/settings" className="cursor-pointer">
-              <DropdownMenuItem>Settings</DropdownMenuItem>
+            <Link href="/booking" className="cursor-pointer">
+              <DropdownMenuItem>Đặt vé</DropdownMenuItem>
             </Link>
             <DropdownMenuSeparator />
             <ClientLink
@@ -105,7 +105,7 @@ export default function TopNavBar() {
             </ClientLink>
           </DropdownMenuContent>
         </DropdownMenu>
-        <ClientLink href="/auth/login">Đăng nhập</ClientLink>
+        <ClientLink href="/booking">Booking</ClientLink>
       </div>
     </header>
   );

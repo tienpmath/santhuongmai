@@ -94,7 +94,8 @@ const Footer: React.FC = () => {
       <div className="container mt-5">
         <hr />
         <p className=" pt-5">
-          @ Bản quyền thuộc raovatlamdong.vn - Liên hệ - Tiến Dev - 0944848788
+          @ Bản quyền thuộc raovatlamdong.vn - Liên hệ - Tiến Dev - 0944848788 -
+          Đăng tin - Quảng cáo giá rẻ - Thiết kế website Đà Lạt
         </p>
       </div>
     </div>
