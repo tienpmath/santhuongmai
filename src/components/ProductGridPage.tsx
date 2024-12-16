@@ -13,7 +13,9 @@ import {
 } from "@/components/ui/sheet";
 import { Heart, ShoppingCart, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+const slugify = require("slugify");
 
 interface Product {
   id: number;
@@ -131,7 +133,9 @@ const ProductGridPage = (props: any) => {
       </>
     );
   };
-
+  const link = (url: string) => {
+    return slugify(url);
+  };
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
@@ -196,15 +200,13 @@ const ProductGridPage = (props: any) => {
               <CardContent className="p-1">
                 <div className="flex justify-center items-center h-60 bg-gray-100 rounded-md mb-4 relative overflow-hidden">
                   {/* <ShoppingBag className="w-24 h-24 text-gray-400" /> */}
-                  <div>
+                  <Link href={"/" + link(product.name) + "-" + product.id}>
                     {Img(product.image ? product.image : "unnamed.png")}
-                  </div>
+                  </Link>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {product.name}
-                </h3>
+
                 <p className="text-gray-600 mb-4">
-                  ${product.price.toFixed(2)}
+                  {product.price.toFixed(2)} VNĐ
                 </p>
                 <div className="flex items-center mb-4">
                   <Star className="w-5 h-5 text-yellow-400 mr-1" />
@@ -213,7 +215,12 @@ const ProductGridPage = (props: any) => {
               </CardContent>
 
               <CardFooter className="bg-gray-50 p-4 flex justify-between items-center">
-                <Button
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <Link href={"/" + link(product.name) + "-" + product.id}>
+                    {product.name}
+                  </Link>
+                </h3>
+                {/* <Button
                   onClick={() =>
                     isInCart(product.id)
                       ? removeFromCart(product.id)
@@ -223,7 +230,7 @@ const ProductGridPage = (props: any) => {
                   variant={isInCart(product.id) ? "destructive" : "default"}
                 >
                   {isInCart(product.id) ? "Remove from Cart" : "Add to Cart"}
-                </Button>
+                </Button> */}
                 <Button
                   variant="ghost"
                   size="icon"

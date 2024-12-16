@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { format } from "date-fns";
+
 import {
   Card,
   CardContent,
@@ -23,16 +24,18 @@ export function BlogCard(data: any, key: any) {
     <Card className="flex flex-col overflow-hidden">
       <CardHeader className="p-0">
         <div className="relative h-48 w-full">
-          <Image
-            src={
-              "https://admin.raovatlamdong.vn/uploads/host/my-file-container/" +
-              data.data.coverImageMediaId
-            }
-            alt={data.data.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          <Link href={`/blog/${data.data.slug}`}>
+            <Image
+              src={
+                "https://admin.raovatlamdong.vn/uploads/host/my-file-container/" +
+                data.data.coverImageMediaId
+              }
+              alt={data.data.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </Link>
         </div>
       </CardHeader>
       <CardContent className="flex-grow p-4">

@@ -8,6 +8,7 @@ import { format } from "path";
 import { title } from "process";
 import Image from "next/image";
 import { ResolvingMetadata, Metadata } from "next";
+import DetailComponent from "@/components/Products/DetailComponent";
 interface BlogDetailProps {
   title: string;
   content: string;
@@ -22,9 +23,12 @@ interface BlogDetailProps {
   readingTime: number;
 }
 async function getData() {
-  const res = await fetch("https://admin.raovatlamdong.vn/api/app/product", {
-    next: { tags: ["collection"] },
-  });
+  const res = await fetch(
+    "https://cloud.raovatlamdong.vn/api/app/product?SkipCount=1&MaxResultCount=6&Sorting=Id",
+    {
+      next: { tags: ["collection"] },
+    }
+  );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
   if (!res.ok) {
@@ -49,7 +53,7 @@ export async function generateMetadata(
 
   // fetch data
   const product = await fetch(
-    `https://admin.raovatlamdong.vn/api/app/product/product?slug=${slug}`,
+    `https://cloud.raovatlamdong.vn/api/app/product/product?slug=${slug}`,
     { next: { revalidate: 10000 } }
   ).then((res) => res.json());
 
@@ -63,7 +67,7 @@ export async function generateMetadata(
       title: product.name,
       description: product.description,
       images: [
-        "https://https://admin.raovatlamdong.vn/uploads/host/my-file-container/" +
+        "https://https://cloud.raovatlamdong.vn/uploads/host/my-file-container/" +
           product.image,
         ...previousImages,
       ],
@@ -77,7 +81,7 @@ const ProductDetailSlug = async (props: Props) => {
   //console(slug);
   //console.log(id);
   const res = await fetch(
-    `https://admin.raovatlamdong.vn/api/app/product/product?slug=${slug}`,
+    `https://cloud.raovatlamdong.vn/api/app/product/product?slug=${slug}`,
     {
       method: "GET",
       next: { revalidate: 10000 },
@@ -85,8 +89,8 @@ const ProductDetailSlug = async (props: Props) => {
   );
 
   const data = await res.json();
-  const datap = getData();
-  // console.log(data);
+  const datap = await getData();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -96,6 +100,7 @@ const ProductDetailSlug = async (props: Props) => {
   };
   return (
     <>
+      <DetailComponent data={data} datap={datap} />
       <article className="max-w-3xl mx-auto px-4 py-8">
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4">{title}</h1>
@@ -119,7 +124,7 @@ const ProductDetailSlug = async (props: Props) => {
           <div className="relative w-full h-64 md:h-96 mb-8">
             <Image
               src={
-                "https://admin.raovatlamdong.vn/uploads/host/my-file-container/" +
+                "https://cloud.raovatlamdong.vn/uploads/host/my-file-container/" +
                 data.image
               }
               alt={data.name}

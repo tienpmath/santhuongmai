@@ -1,6 +1,6 @@
 //import Login from "@/components/Login";
 import { BlogCard } from "@/components/components_blog-card";
-import { BlogList } from "@/components/components_blog-list";
+
 import ProductGridPage from "@/components/ProductGridPage";
 
 export const metadata = {
@@ -62,7 +62,7 @@ export default async function Home() {
             {dataBlog.items.map((item: any, index: any) => (
               <BlogCard data={item} key={index} />
             ))}
-          </div>{" "}
+          </div>
         </div>
       </div>
     </>
